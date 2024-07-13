@@ -9,6 +9,7 @@ RSpec.describe Registrant do
     @registrant_1 = Registrant.new('Bruce', 18, true )
     @registrant_2 = Registrant.new('Penny', 16 )
     @registrant_3 = Registrant.new('Tucker', 15 )
+
   end
 
   describe '#initialize' do
@@ -21,7 +22,6 @@ RSpec.describe Registrant do
     it 'can have another registrant with attributes' do
         expect(@registrant_2.name).to eq("Penny")
         expect(@registrant_2.age).to eq(16)
-
         expect(@registrant_3.name).to eq("Tucker")
         expect(@registrant_3.age).to eq(15)
     end
@@ -32,7 +32,6 @@ RSpec.describe Registrant do
         expect(@registrant_1.permit?).to eq(true)   
         expect(@registrant_2.permit?).to eq(false) 
         expect(@registrant_3.permit?).to eq(false)
-
     end
   end
 

@@ -27,6 +27,7 @@ class Facility
     @registered_vehicles << vehicle
     @registered_vehicles
   end
+
 end
 
   def registration_fee(vehicle)
@@ -55,4 +56,5 @@ end
     return false unless registrant.license_data[:written] == true && registrant.license_data[:license] == true
     registrant.license_data[:renewed] = true
   end
-end
+
+
