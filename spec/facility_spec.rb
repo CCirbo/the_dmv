@@ -12,7 +12,6 @@ RSpec.describe Facility do
     @cruz = Vehicle.new({vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice} )
     @bolt = Vehicle.new({vin: '987654321abcdefgh', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev} )
     @camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model: 'Camaro', engine: :ice} )
-
     @registrant_1 = Registrant.new('Bruce', 18, true )
     @registrant_2 = Registrant.new('Penny', 16 )
     @registrant_3 = Registrant.new('Tucker', 15 )
@@ -26,7 +25,6 @@ RSpec.describe Facility do
       expect(@facility.address).to eq('2855 Tremont Place Suite 118 Denver CO 80205')
       expect(@facility.phone).to eq('(720) 865-4600')
       expect(@facility.services).to eq([])
-      
     end
   end
 
@@ -93,7 +91,6 @@ RSpec.describe Facility do
       expect(@bolt.plate_type).to eq(:ev)
     end
 
-
     it 'can collect vehicle registration fees for all vehicles' do
       expect(@facility_1.collected_fees).to eq(0)
       @facility_1.register_vehicle(@cruz)
@@ -104,7 +101,6 @@ RSpec.describe Facility do
       expect(@facility_1.collected_fees).to eq(325)
     end
 
-
   describe '#Written testing services' do
     it 'can administer a Written Test if you have a permit' do
       expect(@facility_1.administer_written_test(@registrant_1)).to eq(false)
@@ -113,6 +109,7 @@ RSpec.describe Facility do
       expect(@registrant_1.license_data[:written]).to eq(true)
       expect(@registrant_1.license_data).to eq({:written=>true, :license=>false, :renewed=>false})
     end
+
     it 'can adminster a Written Test if you earn a permit' do
       expect(@registrant_2.permit?).to eq(false)
       expect(@facility_1.administer_written_test(@registrant_2)).to eq(false)
@@ -137,6 +134,7 @@ RSpec.describe Facility do
       @facility_1.add_service('Written Test')
       @facility_1.add_service('Road Test')
     end
+    
       it 'will not administer Road Test if Written Test is not earned' do
       expect(@facility_1.administer_road_test(@registrant_3)).to eq(false)
       @registrant_3.earn_permit
