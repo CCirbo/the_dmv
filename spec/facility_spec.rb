@@ -100,6 +100,7 @@ RSpec.describe Facility do
       @facility_1.register_vehicle(@bolt)
       expect(@facility_1.collected_fees).to eq(325)
     end
+  end
 
   describe '#Written testing services' do
     it 'can administer a Written Test if you have a permit' do

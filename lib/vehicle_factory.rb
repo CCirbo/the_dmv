@@ -8,7 +8,7 @@ class VehicleFactory
                 make: vehicle_details[:make],
                 model: vehicle_details[:model],
                 engine: :ev
-                )
+            )
         end
     end
 end
