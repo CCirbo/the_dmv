@@ -12,8 +12,3 @@ class VehicleFactory
         end
     end
 end
-# @vin = vehicle_details[:vin]
-# @year = vehicle_details[:year]
-# @make = vehicle_details[:make]
-# @model = vehicle_details[:model]
-# @engine = vehicle_details[:engine]
