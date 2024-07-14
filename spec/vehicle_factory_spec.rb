@@ -8,7 +8,6 @@ RSpec.configure do |config|
   before(:each) do 
     @factory = VehicleFactory.new
     @wa_ev_registrations = DmvDataService.new.wa_ev_registrations
-   
    end
 
   describe "#create vehicles" do
@@ -16,7 +15,6 @@ RSpec.configure do |config|
         expect(@factory.create_vehicles(@wa_ev_registrations)[0]).to be_an(Vehicle)
         expect(@factory.create_vehicles(@wa_ev_registrations)).to be_an(Array)
         expect(@factory.create_vehicles(@wa_ev_registrations).length).to eq(1000)
-        # require 'pry'; binding.pry
     end
 
     it "can create bulk vehicles that work with vehicle class" do

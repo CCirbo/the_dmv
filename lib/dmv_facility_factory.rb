@@ -1,5 +1,4 @@
-
-  class DmvFacilityFactory
+class DmvFacilityFactory
 
     def create_facilities(bulk_facilities)
         state = bulk_facilities.first[:state]
@@ -49,7 +48,4 @@
             Facility.new(facility_information)
         end
     end
-
-    
-   
 end
