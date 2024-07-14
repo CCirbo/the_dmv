@@ -8,7 +8,6 @@ RSpec.configure do |config|
   before(:each) do 
     @factory = VehicleFactory.new
     @wa_ev_registrations = DmvDataService.new.wa_ev_registrations
-    # require 'pry'; binding.pry
    end
 
   describe "#create vehicles" do

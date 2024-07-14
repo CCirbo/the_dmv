@@ -15,7 +15,6 @@ RSpec.describe Facility do
     @registrant_1 = Registrant.new('Bruce', 18, true )
     @registrant_2 = Registrant.new('Penny', 16 )
     @registrant_3 = Registrant.new('Tucker', 15 )
-
   end
 
   describe '#initialize' do
@@ -51,7 +50,6 @@ RSpec.describe Facility do
   describe '#vehicles services' do
     before(:each) do
       @facility_1.add_service('Vehicle Registration')
-      # @facility_1.register_vehicle(@cruz)
     end
     
     it 'it can register vehicles of any kind if service is offered' do
@@ -100,6 +98,7 @@ RSpec.describe Facility do
       @facility_1.register_vehicle(@bolt)
       expect(@facility_1.collected_fees).to eq(325)
     end
+  end
 
   describe '#Written testing services' do
     it 'can administer a Written Test if you have a permit' do

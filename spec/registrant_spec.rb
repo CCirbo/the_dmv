@@ -9,7 +9,6 @@ RSpec.describe Registrant do
     @registrant_1 = Registrant.new('Bruce', 18, true )
     @registrant_2 = Registrant.new('Penny', 16 )
     @registrant_3 = Registrant.new('Tucker', 15 )
-
   end
 
   describe '#initialize' do
