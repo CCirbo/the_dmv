@@ -2,7 +2,6 @@ class DmvFacilityFactory
 
     def create_facilities(bulk_facilities)
         state = bulk_facilities.first[:state]
-        # require 'pry'; binding.pry
         if state == "CO"
             build_co_facilities(bulk_facilities)
         elsif state == "MO"
@@ -16,7 +15,6 @@ class DmvFacilityFactory
 
     def build_co_facilities(bulk_facilities)
         bulk_facilities.map do |facility|
-            # require 'pry'; binding.pry
             facility_information = {
                 name: facility[:dmv_office],
                 address:"#{facility[:address_li]} #{facility[:address_1]} #{facility[:city]} #{facility[:state]} #{facility[:zip]}",

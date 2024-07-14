@@ -10,8 +10,6 @@ RSpec.configure do |config|
     @new_york_facilities = DmvDataService.new.ny_dmv_office_locations
     @missouri_facilities = DmvDataService.new.mo_dmv_office_locations
     @dmv_facility_factory = DmvFacilityFactory.new
-   
-    # require 'pry'; binding.pry
   end
 
   describe '#create multistate facilities' do
@@ -27,7 +25,6 @@ RSpec.configure do |config|
       expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[3].address).to eq("3100 S. Sheridan Blvd.  Denver CO 80227")
     end
   
-
     it 'can create bulk NY facilities' do
       expect(@dmv_facility_factory.create_facilities(@new_york_facilities)[0]).to be_a(Facility)
       expect(@dmv_facility_factory.create_facilities(@new_york_facilities)).to be_an(Array)
