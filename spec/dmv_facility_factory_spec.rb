@@ -7,13 +7,43 @@ RSpec.configure do |config|
  RSpec.describe DmvFacilityFactory do 
   before(:each) do 
     @colorado_facilities = DmvDataService.new.co_dmv_office_locations
+    @new_york_facilities = DmvDataService.new.ny_dmv_office_locations
+    @missouri_facilities = DmvDataService.new.mo_dmv_office_locations
     @dmv_facility_factory = DmvFacilityFactory.new
+   
+    # require 'pry'; binding.pry
   end
 
-  describe '#create Colorado facilities' do
+  describe '#create multistate facilities' do
     it 'can create bulk Colorado facilities' do
-        expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[0]).to be_a(Facility)
-        expect(@dmv_facility_factory.create_facilities(@colorado_facilities).length).to eq(5)
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[0]).to be_a(Facility)
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities)).to be_an(Array)
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities).count).to eq(5)
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[0].name).to eq("DMV Tremont Branch")
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[0].address).to eq("2855 Tremont Place  Denver CO 80205")
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[0].phone).to eq("(720) 865-4600")
+      expect(@dmv_facility_factory.create_facilities(@colorado_facilities)[0].services).to eq([])
+    end
+  
+
+    it 'can create bulk NY facilities' do
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities)[0]).to be_a(Facility)
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities)).to be_an(Array)
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities).count).to eq(170)
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities)[0].name).to eq("HUNTINGTON")
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities)[0].address).to eq("1815 E JERICHO TURNPIKE  HUNTINGTON NY 11743")
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities)[0].phone).to eq("7184774820")
+      expect(@dmv_facility_factory.create_facilities(@new_york_facilities)[0].services).to eq([])
+    end
+
+    it 'can create bulk MO facilities' do
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities)[0]).to be_a(Facility)
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities)).to be_an(Array)
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities).count).to eq(178)
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities)[0].name).to eq("FERGUSON-OFFICE CLOSED UNTIL FURTHER NOTICE")
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities)[0].address).to eq("10425 WEST FLORISSANT FERGUSON MO 63136")
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities)[0].phone).to eq("(314) 733-5316")
+      expect(@dmv_facility_factory.create_facilities(@missouri_facilities)[0].services).to eq([])
     end
   end
 end
